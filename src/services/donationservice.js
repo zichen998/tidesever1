@@ -7,5 +7,8 @@ export default {
   postDonation (donation) {
     return Api().post('/donations', donation,
       { headers: {'Content-type': 'application/json'} })
+  },
+  upvoteDonation (id) {
+    return Api().put(`/donations/${id}/vote`)
   }
 }

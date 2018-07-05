@@ -3,6 +3,7 @@
     <h3 class="vue-title"><i class="fa fa-list" style="padding: 3px"></i>{{messagetitle}}</h3>
     <div id="app1">
       <v-client-table :columns="columns" :data="donations" :options="options">
+        <a slot="upvote" slot-scope="props" class="fa fa-thumbs-up fa-2x" @click="upvote(props.row._id)"></a>
       </v-client-table>
     </div>
   </div>
@@ -21,8 +22,9 @@ export default {
     return {
       messagetitle: ' Donations List ',
       donations: [],
+      props: ['_id'],
       errors: [],
-      columns: ['_id', 'paymenttype', 'amount', 'upvotes'],
+      columns: ['_id', 'paymenttype', 'amount', 'upvotes', 'upvote'],
       options: {
         headings: {
           _id: 'ID',
@@ -44,6 +46,18 @@ export default {
           // JSON responses are automatically parsed.
           this.donations = response.data
           console.log(this.donations)
+        })
+        .catch(error => {
+          this.errors.push(error)
+          console.log(error)
+        })
+    },
+    upvote: function (id) {
+      DonationService.upvoteDonation(id)
+        .then(response => {
+          // JSON responses are automatically parsed.
+          this.loadDonations()
+          console.log(response)
         })
         .catch(error => {
           this.errors.push(error)

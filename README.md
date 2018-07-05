@@ -1,4 +1,4 @@
-# donationvue-1.0
+# donationvue-3.0
 
 > A Vue.js project
 

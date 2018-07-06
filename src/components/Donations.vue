@@ -14,10 +14,10 @@
 import DonationService from '@/services/DonationService'
 import Vue from 'vue'
 import VueTables from 'vue-tables-2'
-import swal from 'vue-sweetalert2'
+// import VueSweetalert2 from 'vue-sweetalert2'
 
 Vue.use(VueTables.ClientTable, {compileTemplates: true, filterByColumn: true})
-Vue.use(swal)
+// Vue.use(VueSweetalert2)
 
 export default {
   name: 'Donations',
@@ -76,10 +76,10 @@ export default {
         showCancelButton: true,
         confirmButtonText: 'OK Delete it',
         cancelButtonText: 'Cancel',
-        showCloseButton: true,
-        showLoaderOnConfirm: true
+        showCloseButton: true
+        // showLoaderOnConfirm: true
       }).then((result) => {
-        console.log('SWAL Result : ' + result)
+        console.log('SWAL Result : ' + result.value)
         if (result.value === true) {
           DonationService.deleteDonation(id)
             .then(response => {
@@ -96,6 +96,7 @@ export default {
               console.log(error)
             })
         } else {
+          console.log('SWAL Else Result : ' + result.value)
           this.$swal('Cancelled', 'Your Donation still Counts!', 'info')
         }
       })

@@ -17,7 +17,7 @@
     </div>
     <div class="form-group" :class="{ 'form-group--error': $v.amount.$error }">
       <label class="form-control-label" name="amount">Amount (Enter a number between 1 and 1000)</label>
-      <input class="form__input" type="number" v-model.trim="amount"/>
+      <input class="form__input" type="decimal" v-model.trim="amount"/>
     </div>
     <div class="error" v-if="!$v.amount.between">Amount must be between 1 and 1000</div>
     <div class="form-group" :class="{ 'form-group--error': $v.message.$error }">
@@ -43,7 +43,6 @@
 import Vue from 'vue'
 import VueForm from 'vueform'
 import Vuelidate from 'vuelidate'
-import VueSweetalert from 'vue-sweetalert'
 import DonationService from '@/services/DonationService'
 import { required, minLength, between } from 'vuelidate/lib/validators'
 
@@ -55,7 +54,6 @@ Vue.use(VueForm, {
 })
 
 Vue.use(Vuelidate)
-Vue.use(VueSweetalert)
 
 export default {
   name: 'Donate',

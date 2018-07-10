@@ -4,6 +4,7 @@
     <div id="app1">
       <v-client-table :columns="columns" :data="donations" :options="options">
         <a slot="upvote" slot-scope="props" class="fa fa-thumbs-up fa-2x" @click="upvote(props.row._id)"></a>
+        <a slot="edit" slot-scope="props" class="fa fa-edit fa-2x" @click="editDonation(props.row._id)"></a>
         <a slot="remove" slot-scope="props" class="fa fa-trash-o fa-2x" @click="deleteDonation(props.row._id)"></a>
       </v-client-table>
     </div>
@@ -14,10 +15,8 @@
 import DonationService from '@/services/DonationService'
 import Vue from 'vue'
 import VueTables from 'vue-tables-2'
-// import VueSweetalert2 from 'vue-sweetalert2'
 
 Vue.use(VueTables.ClientTable, {compileTemplates: true, filterByColumn: true})
-// Vue.use(VueSweetalert2)
 
 export default {
   name: 'Donations',
@@ -27,7 +26,7 @@ export default {
       donations: [],
       props: ['_id'],
       errors: [],
-      columns: ['_id', 'paymenttype', 'amount', 'upvotes', 'upvote', 'remove'],
+      columns: ['_id', 'paymenttype', 'amount', 'upvotes', 'upvote', 'edit', 'remove'],
       options: {
         sortable: ['upvotes'],
         headings: {

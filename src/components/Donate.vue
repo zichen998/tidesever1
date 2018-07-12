@@ -4,7 +4,7 @@
     <div class="container mt-3 mt-sm-5">
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <donation-form donationBtnTitle="Make Donation" @donation-is-created-updated="submitDonation"></donation-form>
+          <donation-form :donation="donation" donationBtnTitle="Make Donation" @donation-is-created-updated="submitDonation"></donation-form>
         </div><!-- /col -->
       </div><!-- /row -->
     </div><!-- /container -->
@@ -18,7 +18,7 @@ import DonationForm from '@/components/DonationForm'
 export default {
   data () {
     return {
-      donation: {},
+      donation: {paymenttype: 'Direct', amount: 0.0},
       messagetitle: ' Make Donation '
     }
   },

@@ -16,12 +16,15 @@
     <div class="error" v-if="!$v.amount.between">Amount must be between 1 and 1000</div>
     <div class="form-group" :class="{ 'form-group--error': $v.message.$error }">
       <label class="form__label">Personal Message</label>
-      <input class="form__input" v-model.trim="$v.message.$model"/>
+      <input class="form__input" placeholder="enter some message here" v-model.trim="$v.message.$model"/>
     </div>
     <div class="error" v-if="!$v.message.required">Message is Required</div>
     <div class="error" v-if="!$v.message.minLength">Message must have at least {{$v.message.$params.minLength.min}} letters.</div>
     <p>
       <button class="btn btn-primary btn1" type="submit" :disabled="submitStatus === 'PENDING'">{{ donationBtnTitle }}</button>
+    </p>
+    <p>
+      <a href="#/donations" class="btn btn-primary btn1" role="button">Manage Donations</a>
     </p>
     <p class="typo__p" v-if="submitStatus === 'OK'">Thanks for your Donation!</p>
     <p class="typo__p" v-if="submitStatus === 'ERROR'">Please Fill in the Form Correctly.</p>
@@ -46,15 +49,14 @@ Vue.use(Vuelidate)
 
 export default {
   name: 'FormData',
-  props: ['donationBtnTitle'],
+  props: ['donationBtnTitle', 'donation'],
   data () {
     return {
       messagetitle: ' Donate ',
-      message: '',
-      paymenttype: 'Direct',
-      amount: 0,
+      message: this.donation.message,
+      paymenttype: this.donation.paymenttype,
+      amount: this.donation.amount,
       upvotes: 0,
-      donation: {},
       submitStatus: null
     }
   },

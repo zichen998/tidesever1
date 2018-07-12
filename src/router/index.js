@@ -5,6 +5,7 @@ import Donations from '@/components/Donations'
 import Donate from '@/components/Donate'
 import AboutUs from '@/components/AboutUs'
 import ContactUs from '@/components/ContactUs'
+import Edit from '@/components/Edit'
 
 Vue.use(Router)
 
@@ -24,6 +25,12 @@ export default new Router({
       path: '/donate',
       name: 'Donate',
       component: Donate
+    },
+    {
+      path: '/edit',
+      name: 'Edit',
+      component: Edit,
+      props: true
     },
     {
       path: '/about',

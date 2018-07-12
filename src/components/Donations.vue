@@ -67,6 +67,10 @@ export default {
           console.log(error)
         })
     },
+    editDonation: function (id) {
+      this.$router.params = id
+      this.$router.push('edit')
+    },
     deleteDonation: function (id) {
       this.$swal({
         title: 'Are you totaly sure?',

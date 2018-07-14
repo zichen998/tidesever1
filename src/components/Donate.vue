@@ -18,7 +18,7 @@ import DonationForm from '@/components/DonationForm'
 export default {
   data () {
     return {
-      donation: {paymenttype: 'Direct', amount: 0.0},
+      donation: {paymenttype: 'Direct', amount: 0.0, message: ''},
       messagetitle: ' Make Donation '
     }
   },

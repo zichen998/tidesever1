@@ -28,6 +28,8 @@ export default {
       errors: [],
       columns: ['_id', 'paymenttype', 'amount', 'upvotes', 'upvote', 'edit', 'remove'],
       options: {
+        perPage: 10,
+        filterable: ['paymenttype', 'amount', 'upvotes'],
         sortable: ['upvotes'],
         headings: {
           _id: 'ID',

@@ -37,7 +37,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  padding-top: 20px;
+  background: url("./assets/homerbgyellow.png") no-repeat center top;
 }
 .VueTables__sortable {
   cursor: pointer;

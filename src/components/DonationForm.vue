@@ -2,7 +2,8 @@
   <form @submit.prevent="submit">
     <div class="form-group">
       <label class="form-label">Select Payment Type</label>
-      <select id="paymenttype" name="paymenttype" class="form-control" type="text" v-model="paymenttype">
+      <select id="paymenttype" name="paymenttype" class="form-control"
+              type="text" v-model="paymenttype">
         <option value="null" selected disabled hidden>Choose Payment Type</option>
         <option value="Direct">Direct</option>
         <option value="PayPal">PayPal</option>

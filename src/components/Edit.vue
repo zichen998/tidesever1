@@ -5,7 +5,8 @@
       <div class="row justify-content-center">
         <div class="col-md-6">
           <template v-if="childDataLoaded">
-          <donation-form :donation="donation" donationBtnTitle="Update Donation" @donation-is-created-updated="updateDonation"></donation-form>
+          <donation-form :donation="donation" donationBtnTitle="Update Donation"
+                         @donation-is-created-updated="updateDonation"></donation-form>
           </template>
         </div><!-- /col -->
       </div><!-- /row -->

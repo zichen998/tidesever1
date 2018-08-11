@@ -4,7 +4,8 @@
     <div class="container mt-3 mt-sm-5">
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <donation-form :donation="donation" donationBtnTitle="Make Donation" @donation-is-created-updated="submitDonation"></donation-form>
+          <donation-form :donation="donation" donationBtnTitle="Make Donation"
+                         @donation-is-created-updated="submitDonation"></donation-form>
         </div><!-- /col -->
       </div><!-- /row -->
     </div><!-- /container -->

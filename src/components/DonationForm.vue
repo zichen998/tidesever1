@@ -89,7 +89,8 @@ export default {
             message: this.message
           }
           this.donation = donation
-          console.log('Submitting in DonationForm : ' + JSON.stringify(this.donation, null, 5))
+          console.log('Submitting in DonationForm : ' +
+            JSON.stringify(this.donation, null, 5))
           this.$emit('donation-is-created-updated', this.donation)
         }, 500)
       }

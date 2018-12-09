@@ -4,8 +4,8 @@
     <div class="container mt-3 mt-sm-5">
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <donation-form :donation="donation" donationBtnTitle="Make Donation"
-                         @donation-is-created-updated="submitDonation"></donation-form>
+          <product-form :product="product" productBtnTitle="Show Product"
+                         @product-is-created-updated="submitProduct"></product-form>
         </div><!-- /col -->
       </div><!-- /row -->
     </div><!-- /container -->
@@ -13,22 +13,22 @@
 </template>
 
 <script>
-import DonationService from '@/services/DonationService'
-import DonationForm from '@/components/DonationForm'
+import ProductService from '@/services/ProductService'
+import ProductForm from '@/components/ProductForm'
 
 export default {
   data () {
     return {
-      donation: {paymenttype: 'Direct', amount: 0.0, message: ''},
-      messagetitle: ' Make Donation '
+      product: {name: 'Supreme*CDG boxlogo', amount: 0.0, message: ''},
+      messagetitle: ' Show Product '
     }
   },
   components: {
-    'donation-form': DonationForm
+    'product-form': ProductForm
   },
   methods: {
-    submitDonation: function (donation) {
-      DonationService.postDonation(donation)
+    submitProduct: function (product) {
+      ProductService.postProduct(product)
         .then(response => {
           console.log(response)
         })

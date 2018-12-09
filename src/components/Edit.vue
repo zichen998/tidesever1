@@ -5,8 +5,8 @@
       <div class="row justify-content-center">
         <div class="col-md-6">
           <template v-if="childDataLoaded">
-          <donation-form :donation="donation" donationBtnTitle="Update Donation"
-                         @donation-is-created-updated="updateDonation"></donation-form>
+          <product-form :product="product" productBtnTitle="Update product"
+                         @product-is-created-updated="updateProduct"></product-form>
           </template>
         </div><!-- /col -->
       </div><!-- /row -->
@@ -15,44 +15,44 @@
 </template>
 
 <script>
-import DonationService from '@/services/DonationService'
-import DonationForm from '@/components/DonationForm'
+import ProductService from '@/services/ProductService'
+import ProductForm from '@/components/ProductForm'
 
 export default {
   data () {
     return {
-      donation: {},
+      product: {},
       childDataLoaded: false,
       temp: {},
-      messagetitle: ' Update Donation '
+      messagetitle: ' Update Product '
     }
   },
   components: {
-    'donation-form': DonationForm
+    'product-form': ProductForm
   },
   created () {
-    this.getDonation()
+    this.getProduct()
   },
   methods: {
-    getDonation: function () {
-      DonationService.fetchDonation(this.$router.params)
+    getProduct: function () {
+      ProductService.fetchProduct(this.$router.params)
         .then(response => {
           this.temp = response.data
-          this.donation = this.temp[0]
+          this.product = this.temp[0]
           this.childDataLoaded = true
-          console.log('Getting Donation in Edit: ' + JSON.stringify(this.donation, null, 5))
+          console.log('Getting Product in Edit: ' + JSON.stringify(this.product, null, 5))
         })
         .catch(error => {
           this.errors.push(error)
           console.log(error)
         })
     },
-    updateDonation: function (donation) {
-      console.log('Before PUT ' + JSON.stringify(donation, null, 5))
-      DonationService.putDonation(this.$router.params, donation)
+    updateProduct: function (product) {
+      console.log('Before PUT ' + JSON.stringify(product, null, 5))
+      ProductService.putProduct(this.$router.params, product)
         .then(response => {
           console.log(response)
-          console.log('AFTER PUT ' + JSON.stringify(donation, null, 5))
+          console.log('AFTER PUT ' + JSON.stringify(product, null, 5))
         })
         .catch(error => {
           this.errors.push(error)

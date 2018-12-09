@@ -1,17 +1,16 @@
 <template>
   <div class="hero">
-    <h1 class="vue-title">Homer for President !!</h1>
+    <h1 class="vue-title">Trend direction !!</h1>
 
     <table align="center">
       <tr>
         <td>
-          <p class="lead"><b><i>Time for a change !!</i></b>
-          <p>Out with Boring Prumt - Giving has never been so easy.</p>
-          <p>Just click <a href ="#/donate">here</a> to go to</p>
-          <p>the Donation page and empty your wallet</p>
+          <p data-test-title class="lead"><b><i>It is a show time !!</i></b>
+          <p data-test-content >Just click <a href ="#/show">here</a> to go to</p>
+          <p>the Product page </p>
         </td>
         <td>
-          <img src="../assets/homer.gif" alt="description here" />
+          <img data-test-image src="../assets/boxlogo.png" alt="description here" />abc
         </td>
       </tr>
     </table>
@@ -19,6 +18,7 @@
     <p></p>
     <p class="lead">This is the homepage of your <b>MEVN</b> Web app</p>
   </div>
+
 </template>
 
 <style>

@@ -54,6 +54,16 @@ export default {
       ProductService.fetchProducts()
         .then(response => {
           // JSON responses are automatically parsed.
+          console.log(typeof (response))
+          console.log(typeof (response))
+          console.log(typeof (response))
+          console.log(typeof (response))
+          console.log(typeof (response))
+          console.log(typeof (response))
+          console.log(typeof (response))
+          console.log(typeof (response))
+          console.log(typeof (response))
+          console.log(typeof (response))
           this.products = response.data
           console.log(this.products)
         })

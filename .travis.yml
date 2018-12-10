@@ -1,5 +1,8 @@
 dist: trusty
 language: node_js
+cache:
+  directories:
+  - node_modules
 node_js:
 - stable
 before_script:
@@ -8,7 +11,5 @@ before_script:
 - cd dist && httpserver -p 8084 &
 script:
 - npx cypress run
-after_success:
-- npm run publish-coverage
 branches:
 only: master

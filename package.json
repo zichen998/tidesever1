@@ -12,7 +12,7 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
     "build": "node build/build.js",
-    "custom-build":"npx webpack --config build/webpack.custom.prod.config.js"
+    "custom-build": "npx webpack --config build/webpack.custom.prod.config.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -42,6 +42,7 @@
     "chai": "^4.1.2",
     "chalk": "^2.0.1",
     "chromedriver": "^2.27.2",
+    "clean-webpack-plugin": "^1.0.0",
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^5.0.1",
     "cross-spawn": "^5.0.1",

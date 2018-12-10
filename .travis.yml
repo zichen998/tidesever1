@@ -1,0 +1,14 @@
+dist: trusty
+language: node_js
+node_js:
+- stable
+before_script:
+- npm install -g httpserver
+- npm run custom-build
+- cd dist && httpserver -p 8084 &
+script:
+- npx cypress run
+after_success:
+- npm run publish-coverage
+branches:
+only: master
